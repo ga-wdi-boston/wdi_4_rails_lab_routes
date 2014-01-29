@@ -43,7 +43,7 @@ group :test do
 end
 
 group :development, :test do
-  gem 'pry'
+  gem 'pry-rails'
   gem 'pry-nav'
   gem 'pry-stack_explorer'
   # Turn off verbose logging of asset requests
