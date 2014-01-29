@@ -1,0 +1,13 @@
+<dl>
+<dt>Title</dt><dd><%= @movie.title %></dd>
+<dt>Rating</dt><dd><%= @movie.rating %></dd>
+<dt>Length</dt><dd><%= @movie.length %></dd>
+<dt>Description</dt><dd><%= @movie.description %></dd>
+  <dl>
+  <% @movie.comments.each do |comment| %>
+  <dt>Comment</dt><dd><%= comment.body%></dd>
+  <% end %>
+  </dl>
+</dl>
+<%= link_to "New Comment", new_movie_comment_path(@movie.id) %>
+<%= link_to "Movies", movies_path %>
