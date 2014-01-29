@@ -2,8 +2,13 @@ class CommentsController < ApplicationController
 
   # before filter to get the movie that this comment belongs.
   before_action :get_movie
+
   def index
-    @comments = @movie.comments
+    if !@movie
+      @comments = Comment.all
+    else
+      @comments = @movie.comments      
+    end
   end
 
   def show
@@ -25,6 +30,6 @@ class CommentsController < ApplicationController
   end
 
   def get_movie
-    @movie = Movie.find(params[:movie_id])
+    @movie = Movie.find(params[:movie_id]) if params.key?(:movie_id)
   end
 end
